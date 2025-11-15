@@ -1,0 +1,275 @@
+:root {
+    --bg: #0f1724;
+    --card: #0b1220;
+    --accent: #16a34a;
+    --danger: #ef4444;
+    --glass: rgba(255, 255, 255, 0.04);
+    --glass-2: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(180deg, #071225 0%, #071a2a 60%);
+    color: #e6eef8
+}
+
+.wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box
+}
+
+
+header {
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 28px
+}
+
+.logo {
+    font-size: 46px;
+    background: linear-gradient(90deg, #ffd166, #ef476f, #06d6a0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 8px 24px rgba(2, 6, 23, 0.6);
+}
+
+.subtitle {
+    margin-top: 6px;
+    font-size: 13px;
+    opacity: 0.9
+}
+
+
+.card {
+    width: 100%;
+    max-width: 920px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: 0 10px 40px rgba(2, 6, 23, 0.7)
+}
+
+
+/* Intro */
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px
+}
+
+.question {
+    font-size: 28px;
+    font-weight: 700
+}
+
+.buttons {
+    display: flex;
+    gap: 18px
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    user-select: none;
+    transition: all 220ms cubic-bezier(.2, .9, .26, 1);
+    box-shadow: 0 6px 20px rgba(2, 6, 23, 0.45)
+}
+
+.btn:active {
+    transform: translateY(2px) scale(0.995)
+}
+
+.btn-yes {
+    background: linear-gradient(180deg, #34d399, #10b981);
+    color: #032;
+}
+
+.btn-no {
+    background: linear-gradient(180deg, #f87171, #ef4444);
+    color: #fff;
+}
+
+
+.game {
+    display: none;
+    margin-top: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+    position: relative;
+    overflow: hidden
+}
+
+.hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px
+}
+
+.challenge {
+    font-weight: 700
+}
+
+
+.arena {
+    position: relative;
+    height: 520px;
+    background: linear-gradient(180deg, #08202b, #061422);
+    border-radius: 12px;
+    overflow: hidden
+}
+
+.jar {
+    position: absolute;
+    bottom: 36px;
+    width: 140px;
+    height: 160px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff09, #ffffff03);
+    border: 2px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 18px;
+    text-align: center
+}
+
+.jar .label {
+    font-weight: 800;
+    margin-bottom: 6px;
+    width: 100%;
+    text-align: center;
+}
+
+.jar .mouth {
+    width: 80%;
+    height: 8px;
+    background: linear-gradient(90deg, #fff1, #fff1);
+    border-radius: 6px;
+    margin: 0 auto
+}
+
+.jar.yukselt {
+    right: 110px
+}
+
+.jar.yukseltme {
+    right: 320px
+}
+
+
+.sling {
+    position: absolute;
+    left: 60px;
+    bottom: 58px;
+    width: 120px;
+    height: 220px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center
+}
+
+.sling .post {
+    width: 18px;
+    height: 140px;
+    background: linear-gradient(180deg, #6b4a2e, #402616);
+    border-radius: 10px;
+    transform: rotate(0deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6)
+}
+
+
+canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+.ball {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, #fff, #ffd9a8 12%, #ff8b3d 55%, #d9480f 100%);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6)
+}
+
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(2, 8, 23, 0.6), rgba(2, 8, 23, 0.85));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 18px;
+    border-radius: 12px;
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 300ms ease
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: auto
+}
+
+.congrats {
+    font-size: 22px;
+    font-weight: 800;
+    text-align: center
+}
+
+.confetti {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden
+}
+
+.piece {
+    position: absolute;
+    width: 10px;
+    height: 18px;
+    opacity: 0.95;
+    transform-origin: center
+}
+
+
+footer {
+    margin-top: 18px;
+    text-align: center;
+    color: rgba(230, 238, 248, 0.6);
+    font-size: 13px
+}
+
+
+@media (max-width:700px) {
+    .card {
+        padding: 22px
+    }
+
+    .logo {
+        font-size: 36px
+    }
+}

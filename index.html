@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KeF Game — Kefini yüksəlt</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">KeF <span style="color:transparent">Game</span> </div>
+    </header>
+
+    <div class="card" id="introCard">
+      <div class="center">
+        <div class="question">Kefini Yüksəltmək istəyirsən?</div>
+        <div class="buttons">
+          <div class="btn btn-yes" id="btnYes">Hə</div>
+          <div class="btn btn-no" id="btnNo">Yox</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card game" id="gameCard">
+      <div class="hud">
+        <div class="challenge">Göster Marifetini</div>
+      </div>
+
+      <div class="arena" id="arena">
+        <canvas id="c"></canvas>
+
+        <div class="jar yukselt" id="jarWin">
+          <div class="label">Yüksəlt</div>
+          <div class="mouth"></div>
+        </div>
+        <div class="jar yukseltme" id="jarLose">
+          <div class="label">Yüksəltmə</div>
+          <div class="mouth"></div>
+        </div>
+
+        <div class="sling" id="slingVis">
+          <div class="post"></div>
+        </div>
+
+        <div class="overlay" id="overlay">
+          <div class="congrats">Təbriklər! Sən dünyanın ən yaxşı oyuncususan — sən kefini maksimum səviyyəyə yüksəltdin 🎉</div>
+          <div style="font-size:14px;opacity:0.9">Oyunun ulduzu sən oldun!</div>
+        </div>
+        <div class="confetti" id="confetti"></div>
+      </div>
+    </div>
+
+  </div>
+
+<script src="./script.js"></script>
+</body>
+</html>
