@@ -23,8 +23,10 @@ btnNo.addEventListener('click', startGame);
 const canvas = document.getElementById('c');
 const arena = document.getElementById('arena');
 const jarWin = document.getElementById('jarWin');
+const jarLose = document.getElementById('jarLose'); 
 const overlay = document.getElementById('overlay');
 const confetti = document.getElementById('confetti');
+
 
 let ctx, W, H;
 let ball = {x:0,y:0,r:18,dragging:false,ox:0,oy:0};
