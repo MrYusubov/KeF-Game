@@ -265,11 +265,74 @@ footer {
 
 
 @media (max-width:700px) {
-    .card {
-        padding: 22px
+
+    .wrap {
+        padding: 20px 10px;
     }
 
     .logo {
-        font-size: 36px
+        font-size: 30px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .question {
+        font-size: 20px;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    .arena {
+        height: 380px;
+    }
+
+    .sling {
+        left: 20px;
+        bottom: 40px;
+        width: 90px;
+        height: 180px;
+    }
+
+    .sling .post {
+        height: 120px;
+    }
+
+    .jar {
+        width: 100px;
+        height: 120px;
+        bottom: 20px;
+        padding-bottom: 10px;
+        border-radius: 14px;
+    }
+
+    .jar .label {
+        font-size: 14px;
+    }
+
+    .jar.yukselt {
+        right: 40px;
+    }
+
+    .jar.yukseltme {
+        right: 150px;
+    }
+
+    .ball {
+        width: 28px;
+        height: 28px;
     }
 }
