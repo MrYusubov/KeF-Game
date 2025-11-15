@@ -30,6 +30,10 @@ const confetti = document.getElementById('confetti');
 
 let ctx, W, H;
 let ball = {x:0,y:0,r:18,dragging:false,ox:0,oy:0};
+canvas.addEventListener('pointerdown', startDrag);
+canvas.addEventListener('pointermove', onDrag);
+canvas.addEventListener('pointerup', endDrag);
+
 let slingPos = {x:140,y: H? (H-120):400};
 let animating=false;
 
@@ -89,31 +93,58 @@ function pointInBall(px,py){
 
 function startDrag(e){
   if (animating) return;
+
   const rect = canvas.getBoundingClientRect();
-  const x = e.clientX - rect.left, y = e.clientY - rect.top;
-  if (pointInBall(x,y)){
+
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  if (pointInBall(x, y)) {
     ball.dragging = true;
-    canvas.setPointerCapture(e.pointerId);
+    if (e.pointerId) canvas.setPointerCapture(e.pointerId);
   }
 }
 
+
+
 function onDrag(e){
   if (!ball.dragging) return;
+
   const rect = canvas.getBoundingClientRect();
-  let x = e.clientX - rect.left, y = e.clientY - rect.top;
-  const dx = x - (slingPos.x+28), dy = y - (slingPos.y-22);
-  const max = 120; const d = Math.hypot(dx,dy);
-  if (d > max){ x = (dx/d)*max + (slingPos.x+28); y = (dy/d)*max + (slingPos.y-22); }
-  ball.x = x; ball.y = y;
+
+  let x = e.clientX - rect.left;
+  let y = e.clientY - rect.top;
+
+  const dx = x - (slingPos.x+28);
+  const dy = y - (slingPos.y-22);
+
+  const max = 120;
+  const d = Math.hypot(dx, dy);
+
+  if (d > max) {
+    x = (dx/d)*max + (slingPos.x+28);
+    y = (dy/d)*max + (slingPos.y-22);
+  }
+
+  ball.x = x;
+  ball.y = y;
+
   draw();
 }
 
+
+
 function endDrag(e){
   if (!ball.dragging) return;
+
   ball.dragging = false;
-  const vx = (slingPos.x+28) - ball.x; const vy = (slingPos.y-22) - ball.y;
-  launchBall(vx,vy);
+
+  const vx = (slingPos.x+28) - ball.x;
+  const vy = (slingPos.y-22) - ball.y;
+
+  launchBall(vx, vy);
 }
+
 
 function getJarCenter(el){
   const r = el.getBoundingClientRect();

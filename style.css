@@ -297,7 +297,8 @@ footer {
     }
 
     .arena {
-        height: 380px;
+        position: relative;
+        touch-action: none;
     }
 
     .sling {
